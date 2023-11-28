@@ -1,10 +1,8 @@
 import 'package:departamentos_api/DetallesProducto.dart';
-import 'package:departamentos_api/busqueda.dart';
 import 'package:departamentos_api/eliminarProducto.dart';
 import 'package:departamentos_api/futureBusqueda.dart';
 import 'package:departamentos_api/modificar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -103,8 +101,7 @@ class _ListarUsuariosState extends State<ListarUsuarios> {
                                 color: Color.fromARGB(255, 0, 0, 0)),
                             onTap: () {
                               final route = MaterialPageRoute(
-                                  builder: (context) =>
-                                      const ModificarProductos());
+                                  builder: (context) => ModificarProductos(producto: data[index]));
                               Navigator.push(context, route);
                             },
                           ),
@@ -116,7 +113,7 @@ class _ListarUsuariosState extends State<ListarUsuarios> {
                             onTap: () {
                               final route = MaterialPageRoute(
                                   builder: (context) =>
-                                      const EliminarProductos());
+                                       EliminarProductos(producto: data[index]));
                               Navigator.push(context, route);
                             },
                           ),

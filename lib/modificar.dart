@@ -1,11 +1,11 @@
 import 'dart:convert';
-import 'package:departamentos_api/DetallesProducto.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class ModificarProductos extends StatefulWidget {
-  const ModificarProductos({super.key});
-   
+  final Map<String, dynamic>? producto;
+
+  const ModificarProductos({Key? key, this.producto}) : super(key: key);
 
   @override
   State<ModificarProductos> createState() => _ModificarProductosState();
@@ -26,7 +26,16 @@ class _ModificarProductosState extends State<ModificarProductos> {
   @override
   void initState() {
     super.initState();
-    putProductos();
+    if (widget.producto != null) {
+    codi.text = widget.producto!['idProducto'].toString();
+    nuevoNom.text = widget.producto!['nombre'];
+    nuevoPrecioCompra.text = widget.producto!['precioCompra'].toString();
+    nuevoPrecioVenta.text = widget.producto!['precioVenta'].toString();
+    nuevoCantidad.text =  widget.producto!['cantidad'].toString();
+    nuevoStockMinimo.text = widget.producto!['stockMinimo'].toString();
+    nuevoEstado.text= widget.producto!['estado'];
+    nuevoStockMaximo.text = widget.producto!['stockMaximo'].toString();
+  }
   }
 
   Future<void> putProductos() async {
@@ -70,7 +79,7 @@ class _ModificarProductosState extends State<ModificarProductos> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  DetallesProducto(),
+                  // DetallesProducto(),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Row(

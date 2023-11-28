@@ -5,7 +5,8 @@ import 'package:http/http.dart' as http;
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 class EliminarProductos extends StatefulWidget {
-  const EliminarProductos({super.key});
+  final Map<String, dynamic>? producto;
+  const EliminarProductos({Key? key, this.producto}) : super(key: key);
 
   @override
   State<EliminarProductos> createState() => _EliminarProductosState();
@@ -18,7 +19,9 @@ class _EliminarProductosState extends State<EliminarProductos> {
   @override
   void initState() {
     super.initState();
-    deleteProductos();
+    if (widget.producto != null) {
+    idProducto.text = widget.producto!['idProducto'].toString();
+  }
   }
 
   Future<void> deleteProductos() async {

@@ -1,7 +1,5 @@
 
 import 'package:departamentos_api/Personas.dart';
-import 'package:departamentos_api/apptheme/apptheme.dart';
-import 'package:departamentos_api/menu.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,12 +12,10 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // el un widget Scaffold puede contener otros widget
-    return  MaterialApp(
-      home: const Personas(),
+    return const  MaterialApp(
+      home:  Personas(),
       //ocultar la barra del debug
       debugShowCheckedModeBanner: false,
-
-      theme: ModosApp.tema2,
     );
   }
 }

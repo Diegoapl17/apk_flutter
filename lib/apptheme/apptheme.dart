@@ -12,10 +12,10 @@ class ModosApp{
         bodyMedium: TextStyle(color: Colors.white),
       
       ),
-      drawerTheme: DrawerThemeData(
+      drawerTheme: const DrawerThemeData(
         
       ),
-      iconTheme: IconThemeData(
+      iconTheme: const IconThemeData(
         color: Colors.white
      
       ) 
